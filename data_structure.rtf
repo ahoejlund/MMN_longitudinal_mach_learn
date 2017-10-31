@@ -1,0 +1,37 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs26 \cf0 MMN_longitudinal (MVPA)\
+\
+
+\b0 Setup X_array in Python for the EEG data.\
+\
+X = Epochs by Time-by-Channnels\
+\
+y = length(Epochs)\
+\
+# Python\
+Import spicy.io as scio\
+a = scio.loadmat(\'91filename\'92)[\'91a\'92]\
+# a.shape()\
+b = a.reshape((-1,a.shape[2])).T # reshaping a so that the last dimension of a.shape (i.e. trials/epochs) is kept as is, while the two first dimensions (i.e. channels*time) are collapsed, and then this new numpy array (aka. matrix) is transposed so that we get trials by channels*time.  \
+\
+Save numpy arrays as\
+S1_C1_T0_std0:3\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 S1_C1_T0_dev1:3\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 S1_C1_T1_\'85\
+S1_C1_T2\
+S1_C1_T3\
+S1_C2_T0\
+\'85\
+S2_C1_T0\
+\
+Where S1:8 are Arabic learners, and S9:20 are Dari learners; C1 is Arabic stimuli, and C2 is Dari stimuli; T0:3 are the time points 0 wks, 3 wks, 24 wks, and 81 wks, respectively; and finally, std0:3 are either ha00, ha28, ha49, and ha70, or sha01, sha04, sha07, and sha11, respectively (depending on C1 or C2), and dev1:3 are either ha28, ha49, and ha70, or sha04, sha07, and sha11, respectively (depending on C1 or C2).\
+\
+}
